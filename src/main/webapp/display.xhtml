@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <h:head>
+        <title>Display Products</title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"  /> 
+    </h:head>
+    <h:body>
+        <h:form styleClass="jsfcrud_list_form">
+        <h:dataTable value="#{controller.products}" var="p" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+        <h:column><f:facet name="header">Code</f:facet>
+            #{p.code}
+        </h:column>
+        <h:column><f:facet name="header">Description</f:facet>
+            #{p.description}
+        </h:column>
+        <h:column><f:facet name="header">Price</f:facet>
+            #{p.price}
+        </h:column>    
+        <h:column>
+        <f:facet name="header">
+            <h:outputText escape="false" value="&nbsp;"/>
+        </f:facet>
+        <h:outputText value=" "/>
+        <h:commandLink value="Edit" action="#{controller.toEdit()}">
+            <f:param name="code" value="#{p.code}"/>
+            <f:param name="description" value="#{p.description}"/>
+            <f:param name="price" value="#{p.price}"/>
+        </h:commandLink>  
+        <h:outputText value=" "/>
+        <h:commandLink value="Destroy" action="#{controller.toDelete}">
+            <f:param name="code" value="#{p.code}"/>
+            <f:param name="description" value="#{p.description}"/>
+            <f:param name="price" value="#{p.price}"/>
+        </h:commandLink>  
+        </h:column>
+        </h:dataTable>
+        </h:form>
+        <form jsf:id="form2">
+            <h:commandButton value="Add New Product" action="#{controller.toAdd}"/>
+        </form>
+            
+    </h:body>
+</html>
+

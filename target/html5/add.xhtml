@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <h:head>
+        <title>Add Product</title>
+    </h:head>
+    <h:body>
+        
+<h:form>
+    <p>
+         <label>Product Code:</label>
+         <br/>
+         <input type="text" jsf:id="code" name="code" 
+           value="#{controller.product.code}" required="required"/>
+    </p>
+    <p>
+         <label>Product Description</label>
+         <br/>
+         <input type="description" jsf:id="description" name="description" value="#{controller.product.description}" required="required"/>
+    </p>
+    <p>
+         <label>Product Price:</label>
+         <br/>
+         <input type="price" jsf:id="price" name="price" value="#{controller.product.price}" required="required"/>
+    </p>
+    <p>
+        <h:commandButton value="Complete" action="#{controller.insertProduct()}"/>
+        <h:commandButton value="Cancel" action="display" />
+    </p>
+
+</h:form>
+    </h:body>
+</html>
+
